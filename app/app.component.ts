@@ -156,11 +156,7 @@ export class AppComponent {
      }
    } */
 
-  /*  validarPassword(n1: string, n2: string): boolean{
-     return (n1 !== n2)
-   } */
-  /* 
-    validarSenha(senha2: any){
+    /* validarSenha(senha2: any){
       const validador = (FormControl: FormControl) =>{
         if(senha2 == null){
           throw new Error('Campo obrigatório')
