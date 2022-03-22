@@ -1,0 +1,478 @@
+<div class="esti">
+
+  <h1>Template Driven Forms</h1> <br>
+
+  <div class="container">
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Cadastre-se! -- Template Driven -- FormGroup</mat-card-title>
+      </mat-card-header><br>
+      <mat-card-content>
+
+        <form action="#" id="main-form" (ngSubmit)="dialogoResultadoT()" #form="ngForm">
+          <!-- ngSubmit, já faz o processo de evitar o submit do formulário automático, etc, algo que não acontece no JavaScript -->
+          <div class="form-row">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Nome</mat-label>
+              <input type="text" matInput placeholder="Seu nome..." autocomplete="false" required minlength="5"
+                [(ngModel)]="nameT" name="name" #inputName="ngModel">
+
+              <mat-error *ngIf="inputName.invalid">
+                <span *ngIf="inputName.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 5
+                </span>
+                <span *ngIf="inputName.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Sobrenome</mat-label>
+              <input type="text" matInput placeholder="Digite o seu sobrenome..." autocomplete="false"
+                [(ngModel)]="lastnameT" name="lastname" #inputLastname="ngModel" required minlength="5">
+
+              <mat-error>
+                <span *ngIf="inputLastname.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 5
+                </span>
+                <span *ngIf="inputLastname.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input type="text" matInput placeholder="Digite o seu username..." autocomplete="false"
+                [(ngModel)]="usernameT" name="username" #inputUsername="ngModel" required minlength="7">
+
+              <mat-error>
+                <span *ngIf="inputUsername.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 7
+                </span>
+                <span *ngIf="inputUsername.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="Digite o seu email..." autocomplete="false" [(ngModel)]="emailT"
+                name="email" #inputEmail="ngModel" email required minlength="5">
+
+              <mat-error>
+                <span *ngIf="inputEmail.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 5
+                </span>
+                <span *ngIf="inputEmail.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+                <span *ngIf="inputEmail.errors?.['email']">
+                  Isso não é um email!!
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>CPF</mat-label>
+              <input type="text" matInput placeholder="Digite o seu CPF..." autocomplete="false" [(ngModel)]="cpfT"
+                name="cpf" #inputCpf="ngModel" required minlength="8">
+
+              <mat-error>
+                <span *ngIf="inputCpf.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 8
+                </span>
+                <span *ngIf="inputCpf.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Telefone</mat-label>
+              <input type="tel" matInput placeholder="Digite o seu telefone..." autocomplete="false" [(ngModel)]="telT"
+                name="tel" #inputTel="ngModel" required minlength="8">
+
+              <mat-error>
+                <span *ngIf="inputTel.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 8
+                </span>
+                <span *ngIf="inputTel.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Rua</mat-label>
+              <input type="text" matInput placeholder="Digite a sua rua..." autocomplete="false" [(ngModel)]="streetT"
+                name="street" #inputStreet="ngModel" required minlength="3">
+
+              <mat-error>
+                <span *ngIf="inputStreet.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 3
+                </span>
+                <span *ngIf="inputStreet.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Bairro</mat-label>
+              <input type="text" matInput placeholder="Digite o seu bairro..." autocomplete="false"
+                [(ngModel)]="districtT" name="district" #inputDistrict="ngModel" required minlength="3">
+
+              <mat-error>
+                <span *ngIf="inputDistrict.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 3
+                </span>
+                <span *ngIf="inputDistrict.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Estado/Cidade</mat-label>
+              <input type="text" matInput placeholder="Digite o seu Estado/Cidade..." autocomplete="false"
+                [(ngModel)]="cityT" name="city" #inputCity="ngModel" required minlength="7">
+
+              <mat-error>
+                <span *ngIf="inputCity.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 7
+                </span>
+                <span *ngIf="inputCity.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="fill" class="grow">
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput placeholder="Digite a sua senha..." autocomplete="false"
+                [(ngModel)]="passwordT" name="password" #inputPassword="ngModel" required minlength="5">
+
+              <mat-error>
+                <span *ngIf="inputPassword.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 5
+                </span>
+                <span *ngIf="inputPassword.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="grow">
+              <mat-label>Confirme a sua senha</mat-label>
+              <input type="password" matInput placeholder="Confirme a sua senha..." autocomplete="false"
+                [(ngModel)]="password2T" name="password2" #inputPassword2="ngModel" required minlength="5"
+                (change)="validarSenhas()">
+              <mat-error>
+                
+                <span *ngIf="inputPassword2.errors?.['minlength']">
+                  Você não colocou a quantidade de caracteres mínimos 5
+                </span>
+
+                <span *ngIf="inputPassword2.errors?.['required']">
+                  Este campo é obrigatório
+                </span>
+              </mat-error>
+            </mat-form-field>
+
+
+          </div><br>
+
+          <div class="form-row col">
+
+            <button mat-raised-button type="submit" color="accent" class="growbtn" [disabled]="form.invalid"> Cadastrar
+            </button>
+
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+  </div> <br><br>
+
+  <!-- OUTRO FORMULÁRIO -->
+
+  <h1>FormGroup</h1> <br>
+
+  <div class="container">
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Cadastre-se! -- Template Driven -- FormGroup</mat-card-title>
+      </mat-card-header><br>
+      <mat-card-content>
+
+        <form action="#" id="main-form" name="form" [formGroup]="personalDataG" (ngSubmit)="dialogoResultado()">
+          <div class="form-row">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Nome</mat-label>
+              <input type="text" matInput placeholder="Digite o seu nome..." autocomplete="false"
+                formControlName="name">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['name'].getError('required')">
+                  Este campo é obrigatório
+                </span>
+
+                <span *ngIf="personalDataG.controls['name'].getError('minlength')">
+                  Este campo precisa ter pelo menos 5 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Sobrenome</mat-label>
+              <input type="text" matInput placeholder="Digite o seu sobrenome..." autocomplete="false"
+                formControlName="lastname">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['lastname'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['lastname'].getError('minlength')">
+                  Este campo precisa ter pelo menos 5 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Username</mat-label>
+              <input type="text" matInput placeholder="Digite o seu Username..." autocomplete="false"
+                formControlName="username">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['username'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['username'].getError('minlength')">
+                  Este campo precisa ter pelo menos 7 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-row">
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input type="tel" matInput placeholder="Digite o seu email..." autocomplete="false" email
+                formControlName="email">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['email'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['email'].getError('minlength')">
+                  Este campo precisa ter pelo menos 5 caracteres
+                </span>
+
+                <span *ngIf="personalDataG.controls['email'].getError('email')">
+                  Não é um e-mail válido
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>CPF</mat-label>
+              <input type="text" matInput placeholder="Digite o seu CPF..." autocomplete="false" formControlName="cpf">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['cpf'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['cpf'].getError('minlength')">
+                  Este campo precisa ter pelo menos 8 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Telefone</mat-label>
+              <input type="tel" matInput placeholder="Digite o seu telefone..." autocomplete="false"
+                formControlName="tel">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['tel'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['tel'].getError('minlength')">
+                  Este campo precisa ter pelo menos 8 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Rua</mat-label>
+              <input type="text" matInput placeholder="Digite a sua rua..." autocomplete="false"
+                formControlName="street">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['street'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['street'].getError('minlength')">
+                  Este campo precisa ter pelo menos 3 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Bairro</mat-label>
+              <input type="text" matInput placeholder="Digite o seu bairro..." autocomplete="false"
+                formControlName="district">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['district'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['district'].getError('minlength')">
+                  Este campo precisa ter pelo menos 3 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Estado/Cidade</mat-label>
+              <input type="text" matInput placeholder="Digite o seu Estado/Cidade..." autocomplete="false"
+                formControlName="city">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['city'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['city'].getError('minlength')">
+                  Este campo precisa ter pelo menos 7 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+          </div>
+
+          <div class="form-row">
+
+            <mat-form-field appearance="fill" class="grow">
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput placeholder="Digite a sua senha..." autocomplete="false"
+                formControlName="password">
+
+              <mat-error>
+
+                <span *ngIf="personalDataG.controls['password'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+                <span *ngIf="personalDataG.controls['password'].getError('minlength')">
+                  Este campo precisa ter pelo menos 5 caracteres
+                </span>
+
+              </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="grow">
+              <mat-label>Confirme a sua senha</mat-label>
+              <input type="password" matInput placeholder="Confirme a sua senha..." autocomplete="false"
+                formControlName="password2" (change)="validarSenhas2()">
+
+              <mat-error>
+                
+                <span *ngIf="personalDataG.controls['password2'].getError('minlength')">
+                  Este campo precisa ter pelo menos 5 caracteres
+                </span>
+
+                <span *ngIf="personalDataG.controls['password2'].getError('required')">
+                  Este campo é obrigatório!
+                </span>
+
+
+              </mat-error>
+
+            </mat-form-field>
+          </div><br>
+         
+          <div class="form-row col">
+
+            <button mat-raised-button type="submit" color="accent" class="growbtn" [disabled]="personalDataG.invalid ">
+              Cadastrar </button>
+
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+*{
+
+    font-family: 'Times New Roman', Times, serif; 
+    margin: 0;
+}
+.esti{
+    background-color: aqua;
+    height: 1000px;
+    
+}
+h1{
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+#main-form{
+    width: 800px;
+    
+}
+
+.form-row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.col{
+    flex-direction: column;
+    
+}
+
+.grow{
+    width: 340px;
+    
+}
+
+.growbtn{
+    width: 743px;
+}
